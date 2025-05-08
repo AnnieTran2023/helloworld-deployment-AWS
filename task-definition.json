@@ -1,0 +1,90 @@
+{
+  "taskDefinitionArn": "arn:aws:ecs:eu-north-1:180013891492:task-definition/helloworld-task:3",
+  "containerDefinitions": [
+    {
+      "name": "helloworld",
+      "image": "180013891492.dkr.ecr.eu-north-1.amazonaws.com/helloworld",
+      "cpu": 0,
+      "portMappings": [
+        {
+          "name": "helloworld-8080-tcp",
+          "containerPort": 8080,
+          "hostPort": 8080,
+          "protocol": "tcp",
+          "appProtocol": "http"
+        }
+      ],
+      "essential": true,
+      "environment": [],
+      "environmentFiles": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "ulimits": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/helloworld-task",
+          "mode": "non-blocking",
+          "awslogs-create-group": "true",
+          "max-buffer-size": "25m",
+          "awslogs-region": "eu-north-1",
+          "awslogs-stream-prefix": "ecs"
+        },
+        "secretOptions": []
+      },
+      "systemControls": []
+    }
+  ],
+  "family": "helloworld-task",
+  "taskRoleArn": "arn:aws:iam::180013891492:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::180013891492:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "revision": 3,
+  "volumes": [],
+  "status": "ACTIVE",
+  "requiresAttributes": [
+    {
+      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+    },
+    {
+      "name": "ecs.capability.execution-role-awslogs"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.task-iam-role"
+    },
+    {
+      "name": "ecs.capability.execution-role-ecr-pull"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "name": "ecs.capability.task-eni"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+    }
+  ],
+  "placementConstraints": [],
+  "compatibilities": ["EC2", "FARGATE"],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "1024",
+  "memory": "3072",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "registeredAt": "2025-05-03T11:38:40.017Z",
+  "registeredBy": "arn:aws:iam::180013891492:root",
+  "enableFaultInjection": false,
+  "tags": []
+}

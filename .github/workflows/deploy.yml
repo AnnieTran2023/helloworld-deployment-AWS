@@ -2,7 +2,7 @@ name: Deploy to AWS ECS
 
 on:
   push:
-    branches: [ main ]  # Change this if you're using a different default branch
+    branches: [ main ]
 
 jobs:
   deploy:
@@ -44,6 +44,7 @@ jobs:
       - name: Deploy new image to ECS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          cluster: ${{ secrets.ECS_CLUSTER_NAME }}
+          task-definition: task-definition.json
           service: ${{ secrets.ECS_SERVICE_NAME }}
-          image: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }}:latest
+          cluster: ${{ secrets.ECS_CLUSTER_NAME }}
+          wait-for-service-stability: true
